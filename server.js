@@ -31,7 +31,7 @@ app.post("/api/detection", async (req, res) => {
         }
 
         const response = await ai.models.generateContent({
-            model: "gemini-3.8-flash",
+            model: "gemini-3.5-flash-lite",
             contents: [
                 {
                     inlineData: {
@@ -40,7 +40,7 @@ app.post("/api/detection", async (req, res) => {
                     }
                 },
                 {
-                    text: "Classifie cette image de déchet avec un seul mot parmi PLASTIC, PAPER ou UNKNOWN."
+                    text: "Analyse cette image de déchet. Réponds avec exactement un seul mot en majuscules parmi PLASTIC, PAPER ou UNKNOWN. Utilise PAPER pour le papier ou carton, PLASTIC pour le plastique, et UNKNOWN seulement si l'objet est absent ou impossible à identifier."
                 }
             ]
         });
